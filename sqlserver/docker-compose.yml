@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  mssqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-CU8-ubuntu-16.04
+    restart: always
+    env_file:
+        - global.env
+        - sqlserver/sqlserver.env
+    ports:
+        - 1433:1433
+    volumes:
+        - type: bind
+          source: C:\tmp\sqlserver
+          target: /tmp

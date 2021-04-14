@@ -1,0 +1,19 @@
+# Use root/example as user/password credentials
+# https://github.com/epiclabs-io/docker-oracle-xe-11g
+# RELAX_SECURITY=1
+# hostname: localhost
+# port: 49161
+# sid: xe
+# username: system
+# password: oracle
+version: '3.1'
+services:
+  oracle:
+    image: epiclabs/docker-oracle-xe-11g
+    restart: always
+    ports:
+      - 1521:1521
+    env_file:
+      - oracle.env
+    volumes:
+      - c:\tmp\oracle:/u01/app/oracle
